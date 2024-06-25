@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LocalStorage Example</title>
+</head>
+<body>
+
+<style>
+body{ text-align:center;
+
+}
+#gg{ width:500px; height:300px; font-size:60px; margin-top:250px; background-color:lightblue;
+  }
+#bb{ text-align:center; width:250px;height:50px;margin:25px;
+  }
+#jj{ text-align:center;width:250px;height:50px;
+  }
+#bb1{ text-align:center; width:250px;height:50px;margin:25px;
+  }
+#jj1{ text-align:center;width:250px;height:50px;
+  }
+</style>
+  <button id="gg" onclick="jin()">
+进入登录页面
+</button>
+<br>
+   <input type="text" id="jj" value="" style="display:none;" placeholder="请创建用户名"/>
+   <br>
+   <input type="password" id="bb" value=""style="display:none;"  placeholder="请设置密码"/>
+<br>
+   <button style="display:none;" onclick="ok()" id="hh">确认
+</button>
+
+<p id="nn"> </p>
+
+
+<input type="text" id="jj1" value="" style="display:none;" value="" placeholder="请输入用户名"/>
+<br>
+<input type="passwod" id="bb1" value="" style="display:none;" value=""placeholder="请输入密码"/>
+<br>
+<button id="hh1" style="display:none" onclick="ok2()">
+登录
+</button>
+<p id="nn1">
+</p>
+<div id="kai"style="display:none;" >
+<a href="https://toutaobaoli.github.io/ercijisuan2.0/">
+<img src="https://s21.ax1x.com/2024/06/25/pksW9Z8.jpg">
+</a>
+</div>
+<script>
+function jin(){
+    
+    if ( localStorage.length ===0){
+document.getElementById("gg").style.display = 'none';
+document.getElementById("jj").style.display = 'inline-block';
+document.getElementById("bb").style.display = 'inline-block';
+document.getElementById("hh").style.display = 'inline-block';}
+
+else{
+document.getElementById("bb1").style.display = 'inline-block';
+document.getElementById("hh1").style.display = 'inline-block';
+document.getElementById("jj1").style.display = 'inline-block';
+document.getElementById("gg").style.display = 'none';
+}
+
+}
+
+
+
+ function ok(){
+     
+var qa=document.getElementById("bb").value; az=document.getElementById("jj").value;
+    localStorage.setItem('num', qa);
+    localStorage.setItem('num2', az);
+if (qa!==""&&az!==""){
+
+
+    document.getElementById("nn").innerHTML=`怕你忘记<br>已经保存密码：${qa}<br>用户名:${az}`;
+    
+    document.getElementById("bb").style.display = 'none';
+    document.getElementById("jj").style.display = 'none';
+document.getElementById("hh").style.display = 'none';
+document.getElementById("bb1").style.display = 'inline-block';
+document.getElementById("hh1").style.display = 'inline-block';
+document.getElementById("jj1").style.display = 'inline-block';
+}
+
+
+else if(qa===""&&az===""){
+document.getElementById("nn1").innerHTML=`用户名不能为空<br>密码不能为空`
+}
+else if(az===""){ document.getElementById("nn1").innerHTML="用户名不能为空"
+
+}
+else if(qa===""){document.getElementById("nn1").innerHTML="密码不能为空"
+
+}
+
+}
+
+function ok2(){ 
+    var ws=localStorage.getItem('num')
+    var yh=localStorage.getItem('num2')
+    var ed=document.getElementById("bb1").value 
+    var rf=document.getElementById("jj1").value
+    
+   if (ws===ed&&ws!==""){ 
+     document.getElementById("nn1").innerHTML="登录成功"
+     document.getElementById("bb1").style.display = 'none';
+document.getElementById("hh1").style.display = 'none';
+document.getElementById("jj1").style.display = 'none';
+document.getElementById("kai").style.display = 'inline-block';
+   
+   }
+else {
+  document.getElementById("nn1").innerHTML="登录失败，请检查用户名或密码是否"
+}
+
+
+ }
+
+
+  
+</script>
+</body>
+</html>
+<su
